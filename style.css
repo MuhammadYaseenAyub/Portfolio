@@ -56,6 +56,16 @@ h1 {
   align-items: flex-start;
   gap: 50px;
 }
+.tabs {
+  display: flex;
+  gap: 20px;
+}
+.tabs > .heading {
+  cursor: pointer;
+}
+.tabs > .heading:not(.active) > hr {
+  display: none;
+}
 .publications {
   flex: 3;
   display: flex;
@@ -142,4 +152,26 @@ ol[prefix] > li::before {
 .education-content > .years {
   color: #adadad;
   font-size: small;
+}
+
+.skills > p {
+  margin: 5px 0;
+  color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  .app {
+    padding: 20px;
+    padding-left: 20px;
+  }
+  .content {
+    flex-direction: column-reverse;
+  }
+  .publications {
+    flex: 1;
+  }
+  .right-section {
+    flex: 1;
+    position: static;
+  }
 }
