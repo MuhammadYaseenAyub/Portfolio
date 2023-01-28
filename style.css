@@ -64,9 +64,9 @@ h1 {
   cursor: pointer;
 }
 .tabs > .heading:not(.active) > hr {
-  display: none;
+  opacity: 0;
 }
-.publications {
+.left-section {
   flex: 3;
   display: flex;
   flex-direction: column;
@@ -100,8 +100,13 @@ h1 {
   font-weight: bold;
 }
 
-.publication-content {
+.tab-content {
   flex: 1;
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
 }
 
 .publication > hr {
@@ -167,7 +172,7 @@ ol[prefix] > li::before {
   .content {
     flex-direction: column-reverse;
   }
-  .publications {
+  .left-section {
     flex: 1;
   }
   .right-section {
