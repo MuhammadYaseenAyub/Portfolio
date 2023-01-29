@@ -58,9 +58,16 @@ body {
 .tabs > .heading {
   cursor: pointer;
 }
-.tabs > .heading:not(.active) > hr {
-  opacity: 0;
+.tab {
+  position: relative;
 }
+.tab > hr {
+  position: absolute;
+  bottom: 0;
+}
+/* .tabs > .heading:not(.active) > hr {
+  opacity: 0;
+} */
 .left-section {
   flex: 3;
   display: flex;
