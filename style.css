@@ -7,6 +7,7 @@
 body {
   background: linear-gradient(#686868, #1b1b1b);
   overflow: hidden;
+  color: #fff;
 }
 .app {
   width: 100vw;
@@ -16,10 +17,6 @@ body {
   padding-left: 60px;
   overflow: auto;
   margin: auto;
-}
-
-h1 {
-  color: #fff;
 }
 
 .actions {
@@ -46,8 +43,6 @@ h1 {
 
 .btn.filled {
   background: #6bb75c;
-  color: #fff;
-  text-decoration: underline;
   border: none;
 }
 
@@ -63,14 +58,21 @@ h1 {
 .tabs > .heading {
   cursor: pointer;
 }
-.tabs > .heading:not(.active) > hr {
-  display: none;
+.tab {
+  position: relative;
 }
-.publications {
+.tab > hr {
+  position: absolute;
+  bottom: 0;
+}
+/* .tabs > .heading:not(.active) > hr {
+  opacity: 0;
+} */
+.left-section {
   flex: 3;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch;
 }
 .right-section {
   flex: 2;
@@ -84,8 +86,7 @@ h1 {
 }
 
 .heading > h2 {
-  color: #fff;
-  padding: 8px 0; 
+  padding: 8px 0;
 }
 .heading > hr {
   width: 70px;
@@ -96,15 +97,19 @@ h1 {
 }
 
 .title {
-  color: #fff;
   font-weight: bold;
 }
 
-.publication-content {
+.tab-content {
   flex: 1;
+  display: none;
 }
 
-.publication > hr {
+.tab-content.active {
+  display: block;
+}
+
+.tab-content hr {
   width: 100%;
   height: 1px;
   background-color: rgb(221, 221, 221);
@@ -130,6 +135,17 @@ ol[prefix] > li::before {
   left: -30px;
 }
 
+.experience-section > ul {
+  padding-left: 20px;
+}
+.experience-section > h4,
+.experience-section > p {
+  line-height: 1.5rem;
+}
+.experience-section > ul > li {
+  margin: 5px 0;
+}
+
 .right-section {
   position: sticky;
   top: 0;
@@ -144,9 +160,9 @@ ol[prefix] > li::before {
 
 .education-content > .university {
   font-weight: bold;
-  color: #fff;
 }
-.education-content > .degree, .education-content > .gpa {
+.education-content > .degree,
+.education-content > .gpa {
   color: #e9e9e9;
 }
 .education-content > .years {
@@ -156,7 +172,6 @@ ol[prefix] > li::before {
 
 .skills > p {
   margin: 5px 0;
-  color: #fff;
 }
 
 @media screen and (max-width: 768px) {
@@ -167,7 +182,7 @@ ol[prefix] > li::before {
   .content {
     flex-direction: column-reverse;
   }
-  .publications {
+  .left-section {
     flex: 1;
   }
   .right-section {
