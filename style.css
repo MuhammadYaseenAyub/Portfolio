@@ -1,3 +1,7 @@
+:root {
+  --primary-color: #6bb75c;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -42,7 +46,7 @@ body {
 }
 
 .btn.filled {
-  background: #6bb75c;
+  background: var(--primary-color);
   border: none;
 }
 
@@ -65,9 +69,6 @@ body {
   position: absolute;
   bottom: 0;
 }
-/* .tabs > .heading:not(.active) > hr {
-  opacity: 0;
-} */
 .left-section {
   flex: 3;
   display: flex;
@@ -91,7 +92,7 @@ body {
 .heading > hr {
   width: 70px;
   height: 4px;
-  background-color: #6bb75c;
+  background-color: var(--primary-color);
   border: none;
   border-radius: 10px;
 }
@@ -149,6 +150,55 @@ ol[prefix] > li::before {
 .right-section {
   position: sticky;
   top: 0;
+}
+
+.projects-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* grid-template-rows: repeat(auto-fit, 200px); */
+  gap: 20px;
+  padding-top: 10px;
+}
+
+.project-container {
+  padding: 20px;
+  background: var(--primary-color);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+.project-container:hover {
+  box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.3);
+}
+.project-container:not(.active) > .project-detail,
+.project-container.flipping > .project-detail {
+  display: none;
+}
+.project-container.flipping {
+  padding: 20px;
+}
+.project-container.active {
+  position: fixed;
+  top: 50px;
+  left: 50px;
+  right: 50px;
+  bottom: 50px;
+  z-index: 100;
+  overflow: auto;
+}
+
+.app:has(.project-container.active) > .overlay {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.2);
+  z-index: 99;
 }
 
 .education-content {

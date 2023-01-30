@@ -53,3 +53,25 @@ setActiveTab();
 document.querySelectorAll(".left-section > .tabs > .tab").forEach((tab) => {
   tab.addEventListener("click", setActiveTab);
 });
+
+document.querySelectorAll(".project-container").forEach((project) => {
+  project.addEventListener("click", (e) => {
+    const project = e.currentTarget;
+    const state = Flip.getState(project);
+    project.classList.toggle("active");
+    Flip.from(state, {
+      duration: 0.5,
+      absolute: true,
+    });
+  });
+});
+
+document.querySelector(".overlay").addEventListener("click", (e) => {
+  const activeProject = document.querySelector(".project-container.active");
+  const state = Flip.getState(activeProject);
+  activeProject.classList.toggle("active");
+  Flip.from(state, {
+    duration: 0.5,
+    absolute: true,
+  });
+});
