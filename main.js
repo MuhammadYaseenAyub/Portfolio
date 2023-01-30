@@ -15,7 +15,7 @@ const setActiveTab = (e) => {
     const hr = document.querySelector(".tab > hr");
     const state = Flip.getState(hr);
     const tab = document.querySelector(".left-section > .tabs > .tab.active");
-    tab.appendChild(hr);
+    tab?.appendChild(hr);
     Flip.from(state, {
       duration: 1.25,
       absolute: true,
@@ -26,7 +26,7 @@ const setActiveTab = (e) => {
     return;
   }
 
-  const hr = document.querySelector(".tab.active > hr");
+  const hr = document.querySelector(".tab > hr");
   const state = Flip.getState(hr);
 
   document.querySelectorAll(".left-section > .tabs > .tab").forEach((tab) => {
