@@ -190,10 +190,11 @@ ol[prefix] > li::before {
 
 .project-container.flipping {
   padding: 20px;
+  height: 100vh !important;
 }
 .project-container.active {
   width: 100vw;
-  height: 100vh;
+  height: 100vh !important;
   z-index: 100;
   overflow: auto;
   cursor: auto;

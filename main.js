@@ -120,13 +120,15 @@ document
   .addEventListener("click", closeModal);
 
 const resizeProjectOuterContainer = () => {
+  const display = window.getComputedStyle(document.querySelector(".tab-content#projects")).display;
+  if(display === "none") return;
   document
     .querySelectorAll(".project-outer-container")
     .forEach((projectOuterContainer) => {
       projectOuterContainer.style.minHeight = window.getComputedStyle(
         projectOuterContainer.firstElementChild
       ).height;
-      projectOuterContainer.firstElementChild.style.height = window.getComputedStyle(projectOuterContainer).height;
+      projectOuterContainer.firstElementChild.style.height = "100%";
     });
 };
 window.onload = resizeProjectOuterContainer;
