@@ -68,39 +68,40 @@ const openModal = (e) => {
       gsap.to(".project-container.active > .project-detail", {
         duration: 1.5,
         opacity: 1,
-      })
+      });
       gsap.to(".project-container.active", {
         duration: 0.5,
         padding: 50,
-      })
+      });
       gsap.to(".overlay > button", {
         duration: 0.5,
         opacity: 1,
-      })
-    }
+      });
+    },
   });
   project.removeEventListener("click", openModal);
 };
 
-
 const closeModal = (e) => {
   const activeProject = document.querySelector(".project-container.active");
-  const activeProjectOuterContainer = document.querySelector(".project-outer-container:not(:has(.project-container))");
-  console.log(activeProjectOuterContainer)
+  const activeProjectOuterContainer = document.querySelector(
+    ".project-outer-container:not(:has(.project-container))"
+  );
+  console.log(activeProjectOuterContainer);
   gsap.to(".project-container > .project-detail", {
     duration: 0.5,
     opacity: 0,
-  })
+  });
   gsap.to(".project-container.active", {
     duration: 0,
     padding: 20,
-  })
+  });
   gsap.to(".overlay > button", {
     duration: 0.5,
     opacity: 1,
-  })
+  });
   const state = Flip.getState(activeProject);
-  activeProjectOuterContainer.appendChild(activeProject)
+  activeProjectOuterContainer.appendChild(activeProject);
   activeProject.classList.toggle("active");
   Flip.from(state, {
     duration: 0.5,
@@ -114,5 +115,19 @@ document.querySelectorAll(".project-container").forEach((project) => {
   project.addEventListener("click", openModal);
 });
 
+document
+  .querySelector(".overlay > button")
+  .addEventListener("click", closeModal);
 
-document.querySelector(".overlay > button").addEventListener("click", closeModal);
+const resizeProjectOuterContainer = () => {
+  document
+    .querySelectorAll(".project-outer-container")
+    .forEach((projectOuterContainer) => {
+      projectOuterContainer.style.minHeight = window.getComputedStyle(
+        projectOuterContainer.firstElementChild
+      ).height;
+      projectOuterContainer.firstElementChild.style.height = window.getComputedStyle(projectOuterContainer).height;
+    });
+};
+window.onload = resizeProjectOuterContainer;
+document.querySelector(".tab[data-tab='projects']").addEventListener("click", resizeProjectOuterContainer);
