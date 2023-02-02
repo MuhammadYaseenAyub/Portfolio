@@ -133,3 +133,13 @@ const resizeProjectOuterContainer = () => {
 };
 window.onload = resizeProjectOuterContainer;
 document.querySelector(".tab[data-tab='projects']").addEventListener("click", resizeProjectOuterContainer);
+
+const heroBtn = document.querySelector(".hero-btn > button");
+heroBtn.addEventListener("click", () => {
+  const heroImage = document.querySelector(".hero-image");
+  const state = Flip.getState("h1, .actions")
+  heroImage.classList.remove("active");
+  Flip.from(state, {
+    duration: 0.25,
+  });
+});

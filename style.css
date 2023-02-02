@@ -23,6 +23,81 @@ body {
   margin: auto;
 }
 
+.hero-image {
+  width: 100vw;
+  height: 100vh;
+  z-index: 200;
+  background-image: url("yaseen.jpeg");
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-size: cover;
+}
+.hero {
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100%;
+  color: rgb(216, 216, 216);
+  padding: 50px 0px;
+}
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+}
+.hero  h1 {
+  font-size: 3rem;
+  flex: 1;
+}
+.hero .actions {
+  flex: 0;
+}
+.hero-btn {
+  display: grid;
+  place-items: center;
+}
+.hero-btn > button {
+  all: unset;
+  padding: 5px 30px;
+  border: 1px solid var(--primary-color);
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  margin-top: 20px;
+  animation: heroBtn 1s ease-in-out infinite alternate;
+}
+.hero-btn > button:hover {
+  background-color: var(--primary-color);
+}
+
+@keyframes heroBtn {
+  from {
+    scale: 1;
+  }
+  to {
+    scale: 1.2;
+  }
+}
+
+.hero-image:not(.active) {
+  all: unset;
+}
+.hero-image:not(.active) > .hero {
+  all: unset;
+}
+.hero-image:not(.active)  .hero-content {
+  all: unset;
+}
+
+.hero-image:not(.active) h1 {
+  font-size: 2em;
+}
+.hero-image:not(.active) .hero-btn {
+  display: none;
+}
+
 .actions {
   display: flex;
   flex: 1;
