@@ -131,7 +131,18 @@ const resizeProjectOuterContainer = () => {
       projectOuterContainer.firstElementChild.style.height = "100%";
     });
 };
-window.onload = resizeProjectOuterContainer;
+const setStickinessForRightSection = () => {
+  const rightSection = document.querySelector(".right-section");
+  console.log(rightSection.getClientRects()[0])
+  rightSection.style.top = `calc(100vh - ${rightSection.getClientRects()[0].bottom}px - 20px)`;
+}
+window.onload = () => {
+  resizeProjectOuterContainer();
+  setStickinessForRightSection();
+}
+window.onresize = () => {
+  setStickinessForRightSection();
+}
 document.querySelector(".tab[data-tab='projects']").addEventListener("click", resizeProjectOuterContainer);
 
 const heroBtn = document.querySelector(".hero-btn > button");
